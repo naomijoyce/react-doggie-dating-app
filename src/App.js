@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DogsContainer from './Containers/DogsContainer.js';
+import AppointmentsContainer from './Containers/AppointmentsContainer.js';
+import DogInfo from './Components/DogInfo.js';
 
 class App extends Component {
+  state={
+    dogImages: [],
+    displayDog: false,
+    dogImage: []
+  }
+
+  componentDidMount() {
+    fetch('https://dog.ceo/api/breeds/image/random/12')
+    .then(response => response.json())
+    .then(data =>
+      this.setState({
+        dogImages: data
+      })
+    )
+  }
+
+  displayHandler = (dog) => {
+    console.log('something', dog);
+    this.setState({
+      dogImage: dog,
+      displayDog: true
+    })
+  }
+
   render() {
+    console.log(this.state.dogImages);
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <DogsContainer dogs={this.state.dogImages} onClick={this.displayHandler}/>
+        <AppointmentsContainer />
+
+        {this.state.displayDog === true? <DogInfo dog={this.state.dogImage} />: <h3>Hello!</h3>}
       </div>
     );
   }
