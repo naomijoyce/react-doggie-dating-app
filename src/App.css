@@ -13,6 +13,7 @@
 .dog-grid-container img {
   width: 50%;
   height: auto;
+  border-radius: 12%;
 }
 
 .grid-item {
@@ -27,7 +28,6 @@
 }
 
 .dog-info{
-  right: 0px;
   width: 50%;
   text-align: center;
   height: auto;
@@ -37,12 +37,26 @@
 .dog-info img{
   width: 50%;
   height: auto;
+  border-radius: 12%;
+  float: left;
 }
 
 h3 {
   right: 0px;
   width: 50%;
   text-align: center;
-  height: auto;
   float: right;
+}
+
+.comments-form {
+  right: 0px;
+  text-align: center;
+  width: 50%;
+}
+
+.comment-list {
+  right: 0px;
+  width: 50%;
+  float: right;
+  text-align: center;
 }

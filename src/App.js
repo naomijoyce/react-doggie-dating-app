@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DogsContainer from './Containers/DogsContainer.js';
 import AppointmentsContainer from './Containers/AppointmentsContainer.js';
-import DogInfo from './Components/DogInfo.js';
+import DogInfo from './Containers/DogInfo.js';
 
 class App extends Component {
   state={
@@ -36,7 +36,8 @@ class App extends Component {
         <DogsContainer dogs={this.state.dogImages} onClick={this.displayHandler}/>
         <AppointmentsContainer />
 
-        {this.state.displayDog === true? <DogInfo dog={this.state.dogImage} />: <h3>Hello!</h3>}
+        {this.state.displayDog === true? <DogInfo dog={this.state.dogImage} />
+        : <h3>Hello! Welcome to Paw Pals!</h3>}
       </div>
     );
   }

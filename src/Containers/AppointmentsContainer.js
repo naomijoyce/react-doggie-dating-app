@@ -4,7 +4,10 @@ class AppointmentsContainer extends Component {
 
   render() {
     return (
-      <div className="appoint-grid-container">All the appointments</div>
+      <div>
+        <h2>Your List of Appointments</h2>
+        <div className="appoint-grid-container"></div>
+      </div>
     );
   }
 
