@@ -8,6 +8,8 @@
   width: 50%;
   height: 350px;
   overflow-x: scroll;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .dog-grid-container img {

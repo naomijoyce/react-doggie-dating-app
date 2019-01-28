@@ -7,30 +7,51 @@ class DogInfo extends Component {
     commentList: {
       name: "",
       comment: ""
-    }
+    },
+    nameValue: "",
+    commentValue: ""
+
   }
 
   listChangeHandler = (event) =>{
-    console.log(event.target.value);
+    console.log(event.target);
+
+
     let newList = {...this.state.commentList}
+    newList.name = event.target.value
+    console.log(newList.name);
+    const comment = Object.values(newList.comment = event.target.value).join(" ").trim()
+
 
     if(event.target.classList === "name"){
       this.setState({
-        commentList: Object.values(newList.name = event.target.value)
+        commentList: {
+
+        }
       })
     }
 
     if(event.target.classList === "comment"){
       this.setState({
-        commentList: Object.values(newList.comment = event.target.value)
+        commentList: {
+          comment: comment
+        }
       })
     }
+    console.log(newList);
+  }
 
+  nameChangeHandler = () => {
+    console.log('whatever this means');
+  }
+
+  commentChangeHandler = () => {
+    console.log('i hate everything about this');
   }
 
   submitHandler = (event) => {
     event.preventDefault();
-    
+
   }
 
 
@@ -42,8 +63,10 @@ class DogInfo extends Component {
       <div className="dog-info">
         <h3>Say Hi!</h3>
         <img src={this.props.dog} alt="" />
-        <CommentList lists={this.state.commentList}/>
+        <CommentList lists={this.state.commentList}/> {/*iterate through comment list*/}
         <CommentForm
+          name={this.state.nameValue}
+          comment={this.state.commentValue}
           nameChange={this.listChangeHandler}
           commentChange={this.listChangeHandler}
           onSubmit={this.submitHandler}

@@ -1,8 +1,8 @@
 import React from "react";
 
 const CommentForm = props => {
-  const { nameChange, commentChange, onSubmit } = props;
-
+  const { nameChange, commentChange, onSubmit, name, comment } = props;
+  console.log(props);
   return (
     <div className="comments">
       <form className="comments-form" onSubmit={event => onSubmit(event)}>
