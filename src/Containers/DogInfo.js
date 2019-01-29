@@ -8,56 +8,69 @@ class DogInfo extends Component {
       name: "",
       comment: ""
     },
-    nameValue: "",
-    commentValue: ""
 
   }
 
-  listChangeHandler = (event) =>{
-    console.log(event.target);
+  // listChangeHandler = (event) =>{
+  //   console.log(event.target);
+  //
+  //
+  //   let newList = {...this.state.commentList}
+  //   newList.name = event.target.value
+  //   console.log(newList.name);
+  //   const comment = Object.values(newList.comment = event.target.value).join(" ").trim()
+  //
+  //
+  //   if(event.target.classList === "name"){
+  //     this.setState({
+  //       commentList: {
+  //
+  //       }
+  //     })
+  //   }
+  //
+  //   if(event.target.classList === "comment"){
+  //     this.setState({
+  //       commentList: {
+  //         comment: comment
+  //       }
+  //     })
+  //   }
+  // }
 
-
-    let newList = {...this.state.commentList}
-    newList.name = event.target.value
-    console.log(newList.name);
-    const comment = Object.values(newList.comment = event.target.value).join(" ").trim()
-
-
-    if(event.target.classList === "name"){
-      this.setState({
-        commentList: {
-
-        }
-      })
-    }
-
-    if(event.target.classList === "comment"){
-      this.setState({
-        commentList: {
-          comment: comment
-        }
-      })
-    }
-    console.log(newList);
+  nameChangeHandler = (event) => {
+    let value = event.target.value
+    this.setState({
+      commentList: {
+        name: value
+      },
+      nameValue: value
+    })
   }
 
-  nameChangeHandler = () => {
-    console.log('whatever this means');
-  }
-
-  commentChangeHandler = () => {
-    console.log('i hate everything about this');
+  commentChangeHandler = (event) => {
+    console.log(event.target.value);
+    let value = event.target.value
+    this.setState({
+      commentList:{
+        comment: value
+      },
+      commentValue: value
+    })
   }
 
   submitHandler = (event) => {
     event.preventDefault();
+    this.setState({
+      nameValue:"",
+      commentValue: ""
+    })
 
   }
 
 
 
   render(){
-    console.log(Object.values(this.state.commentList.name));
 
     return(
       <div className="dog-info">
@@ -67,8 +80,8 @@ class DogInfo extends Component {
         <CommentForm
           name={this.state.nameValue}
           comment={this.state.commentValue}
-          nameChange={this.listChangeHandler}
-          commentChange={this.listChangeHandler}
+          nameChange={this.nameChangeHandler}
+          commentChange={this.commentChangeHandler}
           onSubmit={this.submitHandler}
         />
 
