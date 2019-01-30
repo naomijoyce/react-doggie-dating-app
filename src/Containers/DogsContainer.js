@@ -9,7 +9,7 @@ class DogsContainer extends Component {
       <div>
         <h2>Pick a dog!</h2>
         <div className="dog-grid-container">
-          {Object.values(dogs).slice(1).map(dog=> <DogCard key={dog} dog={dog} onClick={onClick}/>)}
+          {Object.values(dogs).slice(1).map((dog) => <DogCard key={dog} dog={dog} onClick={onClick}/>)}
 
 
         </div>

@@ -42,13 +42,15 @@
   height: auto;
   border-radius: 12%;
   float: left;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 h3 {
   right: 0px;
   width: 50%;
-  text-align: center;
   float: right;
+  text-align: center;
 }
 
 .comments-form {
@@ -57,9 +59,18 @@ h3 {
   width: 50%;
 }
 
-.comment-list {
+.comment {
   right: 0px;
-  width: 50%;
-  float: right;
   text-align: center;
+  align-content: center;
+  align-items: center;
+}
+
+.dog-comments-list {
+  display: grid;
+  grid-column: 270px;
+  width: 230px;
+  height: 200px;
+  overflow-x: scroll;
+  justify-content: center;
 }

@@ -25,7 +25,7 @@ class App extends Component {
     console.log('something', dog);
     this.setState({
       dogImage: dog,
-      displayDog: true
+      displayDog: !this.state.displayDog
     })
   }
 

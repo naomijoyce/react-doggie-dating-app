@@ -1,30 +1,49 @@
 import React, { Component } from "react";
 
 class CommentForm extends Component {
-  state = {};
+  state = {
+    name: "",
+    comment: ""
+  }
+
+  changeHandler = event => {
+    console.log(event.target.value);
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  submitHandler = (event) =>{
+    event.preventDefault()
+    this.props.onSubmit(event,this.state)
+    this.setState({
+      name: "",
+      comment: ""
+    })
+  }
+
 
   render() {
-    const { nameChange, commentChange, onSubmit, name, comment } = this.props;
-    console.log(this.props);
     return (
       <div className="comments">
-        <form className="comments-form" onSubmit={event => onSubmit(event)}>
+        <form className="comments-form" onSubmit={this.submitHandler}>
           <h4>Woof! Woof!</h4>
           <input
             type="text"
-            className="name"
-            value={name}
+            name="name"
+            value={this.state.name}
             placeholder="Your name"
-            onChange={event => nameChange(event)}
+            onChange={this.changeHandler}
           />
+          <br/>
           <input
             type="text"
-            className="comment"
-            value={comment}
+            name="comment"
+            value={this.state.comment}
             placeholder="Say something"
-            onChange={event => commentChange(event)}
+            onChange={this.changeHandler}
           />
-          <input type="submit" />
+          <br/>
+          <button>Woof!</button>
         </form>
       </div>
     );
