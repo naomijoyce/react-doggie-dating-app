@@ -23,16 +23,18 @@ class DogInfo extends Component {
       <div className="dog-info">
         <img src={this.props.dog} alt="" />
         <h3>Say Hi!</h3>
+
         <div className="dog-comments-list">
-        {
-          this.state.commentList.map((comment, i) =>
+          {
+            this.state.commentList.map((comment, i) =>
 
-            <CommentList key={i} lists={comment} />
-          )
-        }
+              <CommentList key={i} lists={comment} />
+            )
+          }
         </div>
-
         <CommentForm onSubmit={this.submitHandler} />
+
+
       </div>
     );
   }
