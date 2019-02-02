@@ -73,10 +73,7 @@ A simple react app that I made for fun and to learn react
 For now it is functional, incomplete, and has a lot of bugs(it is still a WIP for me)
 Comes with simple functionality
 
-*able to pick a random dog from an API that gives random pictures
-
-*able to comment on a dog
-
-*able to select a dog and make an appointment
-
-*able to delete an appointment
+* able to pick a random dog from an API that gives random pictures
+* able to comment on a dog
+* able to select a dog and make an appointment
+* able to delete an appointment
