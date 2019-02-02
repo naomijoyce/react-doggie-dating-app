@@ -18,7 +18,6 @@ class DogInfo extends Component {
 
   }
   render() {
-    console.log(this.state.commentList);
     return (
       <div className="dog-info">
         <img src={this.props.dog} alt="" />

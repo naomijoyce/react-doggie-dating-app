@@ -16,7 +16,7 @@
 .dog-grid-container img {
   max-width: 50%;
   max-height: auto;
-  border-radius: 12%;
+  border-radius: 23px;
 }
 
 /* .grid-item {
@@ -76,6 +76,16 @@ h3 {
 }
 
 .make-appointments {
-  float: right;
+  margin-left: 120px;
+}
 
+.dog-appointment-container {
+  float: right;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dog-appointment-container h3 {
+  margin-left: 120px;
 }

@@ -3,8 +3,8 @@ import './App.css';
 import DogsContainer from './Containers/DogsContainer.js';
 import AppointmentsContainer from './Containers/AppointmentsContainer.js';
 import DogInfo from './Containers/DogInfo.js';
-import TimePicker from 'react-time-picker'
-import Calendar from 'react-calendar'
+import DogAppointment from './Components/DogAppointment.js';
+var strftime = require('strftime');
 
 class App extends Component {
   state={
@@ -12,7 +12,8 @@ class App extends Component {
     displayDog: false,
     dogImage: [],
     time: new Date(),
-    date: new Date()
+    date: new Date(),
+    appointments: []
   }
 
   componentDidMount() {
@@ -26,35 +27,34 @@ class App extends Component {
   }
 
   displayHandler = (dog) => {
-    console.log('something', dog);
     this.setState({
       dogImage: dog,
       displayDog: !this.state.displayDog
     })
   }
 
-  timeHandler = (time) => {
-    this.setState({time})
+  submitHandler = (event, appointment) => {
+    event.preventDefault()
+    let newAppointment = [...this.state.appointments, appointment]
+    this.setState({
+      appointments: newAppointment
+    })
   }
-
-  dateHandler = (date) => {
-    this.setState({date})
-  }
-
 
   render() {
-    console.log(this.state.dogImages);
-    console.log(this.state.time);
-    console.log(this.state.date);
+    console.log(this.state.appointments.map(app => strftime('%A %B %e %Y', app.date)));
+
     return (
       <div className="App">
+        {this.state.displayDog === true? <DogAppointment onSubmit={this.submitHandler} /> : null}
 
-        <div className="make-appointments">
-          <Calendar value={this.state.date} minDate={new Date()} onChange={this.dateHandler}/>
-          <TimePicker value={this.state.time} onChange={this.timeHandler}/>
-        </div>
         <DogsContainer dogs={this.state.dogImages} onClick={this.displayHandler}/>
-        <AppointmentsContainer/>
+
+        {
+          this.state.appointments.length > 0?
+          <AppointmentsContainer appointments={this.state.appointments} /> :
+          null
+        }
 
         {this.state.displayDog === true? <DogInfo dog={this.state.dogImage} />
         : <h3>Hello! Welcome to Paw Pals!</h3>}
