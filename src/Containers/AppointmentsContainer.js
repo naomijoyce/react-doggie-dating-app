@@ -23,7 +23,7 @@ class AppointmentsContainer extends Component {
                 appointments.map(appointment => {
                   return (
                     <tr>
-                      <td>{strftime('%A %B %e %Y', appointment.date)}</td>
+                      <td>{strftime('%A %B %e, %Y', appointment.date)}</td>
                       <td>{appointment.time}</td>
                       <td><button onClick={()=> onClick(appointment)}>Delete</button></td>
                     </tr>

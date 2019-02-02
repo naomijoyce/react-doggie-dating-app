@@ -67,3 +67,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # react-doggie-dating-app
+
+A simple react app that I made for fun and to learn react
+
+For now it is functional, incomplete, and has a lot of bugs(it is still a WIP for me)
+Comes with simple functionality
+-able to pick a random dog from an API that gives random pictures
+-able to comment(not delete)
+-able to select a dog and make an appointment
+-able to delete an appointment
