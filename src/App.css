@@ -89,3 +89,9 @@ h3 {
 .dog-appointment-container h3 {
   margin-left: 120px;
 }
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}

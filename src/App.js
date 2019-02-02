@@ -4,7 +4,6 @@ import DogsContainer from './Containers/DogsContainer.js';
 import AppointmentsContainer from './Containers/AppointmentsContainer.js';
 import DogInfo from './Containers/DogInfo.js';
 import DogAppointment from './Components/DogAppointment.js';
-var strftime = require('strftime');
 
 class App extends Component {
   state={
@@ -41,8 +40,16 @@ class App extends Component {
     })
   }
 
+  deleteHandler = (appointment) => {
+    console.log('click', appointment);
+    let newArray = [...this.state.appointments]
+    newArray = newArray.filter(item => item !== appointment )
+    this.setState({
+      appointments: newArray
+    })
+  }
+
   render() {
-    console.log(this.state.appointments.map(app => strftime('%A %B %e %Y', app.date)));
 
     return (
       <div className="App">
@@ -52,7 +59,7 @@ class App extends Component {
 
         {
           this.state.appointments.length > 0?
-          <AppointmentsContainer appointments={this.state.appointments} /> :
+          <AppointmentsContainer appointments={this.state.appointments} onClick={this.deleteHandler}/> :
           null
         }
 

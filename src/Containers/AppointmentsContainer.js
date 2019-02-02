@@ -3,7 +3,8 @@ var strftime = require('strftime');
 
 class AppointmentsContainer extends Component {
   render() {
-    const { appointments } = this.props
+    const { appointments, onClick } = this.props
+    console.log(this.props);
 
     return (
       <div>
@@ -14,6 +15,7 @@ class AppointmentsContainer extends Component {
               <tr>
                 <th>Date</th>
                 <th>Time</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -23,6 +25,7 @@ class AppointmentsContainer extends Component {
                     <tr>
                       <td>{strftime('%A %B %e %Y', appointment.date)}</td>
                       <td>{appointment.time}</td>
+                      <td><button onClick={()=> onClick(appointment)}>Delete</button></td>
                     </tr>
                   )
                 })
